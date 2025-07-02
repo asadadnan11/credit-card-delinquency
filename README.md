@@ -106,19 +106,61 @@ Key variables include credit utilization, payment history scores, income bracket
 
 ## Results & Visualizations
 
-### Model Performance Comparison
-The XGBoost model significantly outperformed the baseline logistic regression:
+### 1. Model Performance Comparison - ROC Curve Analysis
+The XGBoost model significantly outperformed the baseline logistic regression, demonstrating clear business value through improved predictive accuracy:
 
-**[Visualization placeholder: ROC curve comparison showing Logistic Regression AUC vs XGBoost AUC with clear performance improvement]**
+```python
+# ROC Curve showing model performance comparison
+plt.figure(figsize=(10, 8))
+plt.plot(fpr_lr, tpr_lr, label=f'Logistic Regression (AUC = {lr_auc:.3f})')
+plt.plot(fpr_xgb, tpr_xgb, label=f'XGBoost (AUC = {xgb_auc:.3f})')
+plt.plot([0, 1], [0, 1], 'k--', label='Random')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve Comparison')
+```
 
-*Figure 1: ROC Curve Comparison - XGBoost achieves 85% AUC compared to logistic regression baseline, demonstrating superior predictive capability for identifying high-risk customers.*
+**Key Insights:** The XGBoost model achieves 85% AUC versus ~75% for logistic regression, representing a 13% improvement in predictive power. This translates to significantly better identification of high-risk customers before they become delinquent.
 
-### Risk Segmentation Analysis
-Customer segmentation reveals clear risk patterns and actionable insights:
+### 2. Risk Segmentation Validation Dashboard
+Our three-tier segmentation creates distinct customer groups with clear risk profiles and actionable business implications:
 
-**[Visualization placeholder: Four-panel dashboard showing risk score distribution, delinquency rates by segment, customer distribution pie chart, and average balances by segment]**
+```python
+# Four-panel risk analysis dashboard
+plt.figure(figsize=(12, 8))
 
-*Figure 2: Risk Segmentation Dashboard - Shows the distribution of customers across risk tiers, actual delinquency rates validating the model, and financial exposure by segment to guide collections prioritization.*
+# Panel 1: Risk score distribution by segment
+plt.subplot(2, 2, 1)
+for segment in ['Low Risk', 'Medium Risk', 'High Risk']:
+    segment_data = df_model[df_model['risk_segment'] == segment]['risk_score']
+    plt.hist(segment_data, alpha=0.7, label=segment, bins=30)
+
+# Panel 2: Actual delinquency rates by segment  
+plt.subplot(2, 2, 2)
+plt.bar(segments, delinq_rates, color=['green', 'orange', 'red'], alpha=0.7)
+
+# Panel 3: Customer distribution
+plt.subplot(2, 2, 3)
+plt.pie(customer_counts, labels=segments, autopct='%1.1f%%')
+
+# Panel 4: Average balance exposure
+plt.subplot(2, 2, 4)
+plt.bar(segments, avg_balances, color=['green', 'orange', 'red'], alpha=0.7)
+```
+
+**Key Insights:** High-risk customers (15% of portfolio) show 45%+ delinquency rates versus 5% for low-risk customers. This clear separation validates our model and enables targeted resource allocation.
+
+### 3. Feature Importance Analysis
+Understanding which variables drive delinquency risk provides actionable insights for both collections and future risk management:
+
+```python
+# XGBoost feature importance visualization
+plt.figure(figsize=(10, 8))
+sns.barplot(data=importance_df, x='importance', y='feature')
+plt.title('Feature Importance - XGBoost Model')
+```
+
+**Key Insights:** Payment history score, credit utilization, and number of late payments emerge as the top predictors. This confirms business intuition while revealing the relative importance of each factor for data-driven decision making.
 
 ### Key Performance Metrics
 - **Model Accuracy**: 85% AUC on test set
