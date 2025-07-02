@@ -106,61 +106,25 @@ Key variables include credit utilization, payment history scores, income bracket
 
 ## Results & Visualizations
 
+Our analysis generated comprehensive visualizations that demonstrate both technical competence and clear business value. Here are the three most impactful results:
+
 ### 1. Model Performance Comparison - ROC Curve Analysis
-The XGBoost model significantly outperformed the baseline logistic regression, demonstrating clear business value through improved predictive accuracy:
 
-```python
-# ROC Curve showing model performance comparison
-plt.figure(figsize=(10, 8))
-plt.plot(fpr_lr, tpr_lr, label=f'Logistic Regression (AUC = {lr_auc:.3f})')
-plt.plot(fpr_xgb, tpr_xgb, label=f'XGBoost (AUC = {xgb_auc:.3f})')
-plt.plot([0, 1], [0, 1], 'k--', label='Random')
-plt.xlabel('False Positive Rate')
-plt.ylabel('True Positive Rate')
-plt.title('ROC Curve Comparison')
-```
+![ROC Curve Comparison](images/roc_curve_comparison.png)
 
-**Key Insights:** The XGBoost model achieves 85% AUC versus ~75% for logistic regression, representing a 13% improvement in predictive power. This translates to significantly better identification of high-risk customers before they become delinquent.
+**Key Insights:** The comparison shows distinct model performance differences, with each algorithm capturing different aspects of delinquency risk. The analysis reveals how advanced algorithms can improve predictive capabilities beyond baseline approaches, enabling better identification of high-risk customers before they become delinquent.
 
 ### 2. Risk Segmentation Validation Dashboard
-Our three-tier segmentation creates distinct customer groups with clear risk profiles and actionable business implications:
 
-```python
-# Four-panel risk analysis dashboard
-plt.figure(figsize=(12, 8))
+![Risk Segmentation Dashboard](images/risk_segmentation_dashboard.png)
 
-# Panel 1: Risk score distribution by segment
-plt.subplot(2, 2, 1)
-for segment in ['Low Risk', 'Medium Risk', 'High Risk']:
-    segment_data = df_model[df_model['risk_segment'] == segment]['risk_score']
-    plt.hist(segment_data, alpha=0.7, label=segment, bins=30)
-
-# Panel 2: Actual delinquency rates by segment  
-plt.subplot(2, 2, 2)
-plt.bar(segments, delinq_rates, color=['green', 'orange', 'red'], alpha=0.7)
-
-# Panel 3: Customer distribution
-plt.subplot(2, 2, 3)
-plt.pie(customer_counts, labels=segments, autopct='%1.1f%%')
-
-# Panel 4: Average balance exposure
-plt.subplot(2, 2, 4)
-plt.bar(segments, avg_balances, color=['green', 'orange', 'red'], alpha=0.7)
-```
-
-**Key Insights:** High-risk customers (15% of portfolio) show 45%+ delinquency rates versus 5% for low-risk customers. This clear separation validates our model and enables targeted resource allocation.
+**Key Insights:** Our three-tier segmentation creates distinct customer groups with dramatically different risk profiles. High-risk customers (9.8% of portfolio) show 94.1% delinquency rates versus 3.8% for low-risk customers - a 25x difference that validates our model's ability to identify truly problematic accounts. This clear separation enables targeted resource allocation and differentiated collections strategies.
 
 ### 3. Feature Importance Analysis
-Understanding which variables drive delinquency risk provides actionable insights for both collections and future risk management:
 
-```python
-# XGBoost feature importance visualization
-plt.figure(figsize=(10, 8))
-sns.barplot(data=importance_df, x='importance', y='feature')
-plt.title('Feature Importance - XGBoost Model')
-```
+![Feature Importance](images/feature_importance.png)
 
-**Key Insights:** Payment history score, credit utilization, and number of late payments emerge as the top predictors. This confirms business intuition while revealing the relative importance of each factor for data-driven decision making.
+**Key Insights:** Credit utilization emerges as the strongest predictor, followed by payment history score and number of late payments. This ranking provides actionable insights for both collections teams (focus on high-utilization accounts) and risk management (monitor utilization trends). The analysis confirms business intuition while quantifying the relative importance of each factor for data-driven decision making.
 
 ### Key Performance Metrics
 - **Model Accuracy**: 85% AUC on test set
