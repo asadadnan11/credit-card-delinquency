@@ -30,7 +30,7 @@ Using synthetic data that mirrors real-world credit portfolios, this analysis co
 - **Advanced Modeling**: Implemented both logistic regression (baseline) and XGBoost (advanced) with hyperparameter optimization
 - **Model Performance**: Achieved strong predictive accuracy on delinquency prediction, with clear separation between risk segments
 - **Risk Segmentation**: Developed three-tier customer segmentation (Low/Medium/High risk) with differentiated strategies
-- **Collections Optimization**: Built framework projecting 60% reduction in overdue balances
+- **Collections Optimization**: Built framework projecting 34% reduction in overdue balances
 
 ### Business Applications
 - Risk-based pricing strategy recommendations
@@ -112,13 +112,13 @@ Our analysis generated comprehensive visualizations that demonstrate both techni
 
 ![ROC Curve Comparison](images/roc_curve_comparison.png)
 
-**Key Insights:** The comparison shows distinct model performance differences, with each algorithm capturing different aspects of delinquency risk. The analysis reveals how advanced algorithms can improve predictive capabilities beyond baseline approaches, enabling better identification of high-risk customers before they become delinquent. Our XGBoost model achieves strong performance through optimized hyperparameters and feature engineering.
+**Key Insights:** The comparison shows distinct model performance differences, with each algorithm capturing different aspects of delinquency risk. The analysis reveals how advanced algorithms can improve predictive capabilities beyond baseline approaches, enabling better identification of high-risk customers before they become delinquent. Our XGBoost model achieves 79.7% AUC through optimized hyperparameters and feature engineering, representing strong predictive performance for credit risk modeling.
 
 ### 2. Risk Segmentation Validation Dashboard
 
 ![Risk Segmentation Dashboard](images/risk_segmentation_dashboard.png)
 
-**Key Insights:** Our three-tier segmentation creates distinct customer groups with dramatically different risk profiles. High-risk customers (22.5% of portfolio) show 93.9% delinquency rates versus 3.0% for low-risk customers - a 31x difference that validates our model's ability to identify truly problematic accounts. This clear separation enables targeted resource allocation and differentiated collections strategies.
+**Key Insights:** Our three-tier segmentation creates distinct customer groups with dramatically different risk profiles. High-risk customers (40.1% of portfolio) show 92.1% delinquency rates versus 2.3% for low-risk customers - a 40x difference that validates our model's ability to identify truly problematic accounts. This clear separation enables targeted resource allocation and differentiated collections strategies.
 
 ### 3. Feature Importance Analysis
 
@@ -129,7 +129,7 @@ Our analysis generated comprehensive visualizations that demonstrate both techni
 ### Key Performance Metrics
 - **Model Accuracy**: Strong predictive performance with clear risk separation
 - **Portfolio Coverage**: 50,000 synthetic accounts analyzed
-- **Projected Impact**: 60% reduction in overdue balances
+- **Projected Impact**: 34% reduction in overdue balances
 - **Risk Concentration**: High-risk segment (15% of customers) accounts for 60% of potential losses
 
 ## Business Impact
@@ -139,7 +139,7 @@ This analysis provides financial institutions with a systematic approach to cred
 
 **Risk Assessment**: The predictive model enables proactive identification of customers likely to become delinquent, allowing for early intervention strategies that can prevent losses before they occur.
 
-**Collections Optimization**: The three-tier segmentation framework optimizes resource allocation by focusing intensive efforts on high-risk accounts while automating low-risk customer interactions. This approach projects a 60% reduction in overdue balances.
+**Collections Optimization**: The three-tier segmentation framework optimizes resource allocation by focusing intensive efforts on high-risk accounts while automating low-risk customer interactions. This approach projects a 34% reduction in overdue balances.
 
 **Operational Efficiency**: Automated risk scoring reduces manual review time and enables consistent, data-driven decision-making across the collections organization.
 
