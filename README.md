@@ -19,7 +19,9 @@ A comprehensive machine learning project focused on predicting credit card delin
 
 Consumer credit delinquency modeling is critical for financial institutions to manage risk and optimize collection resources. This project builds predictive models to identify high-risk customers and develops data-driven collection strategies that can significantly reduce portfolio losses.
 
-Using synthetic data that mirrors real-world credit portfolios, this analysis covers the complete credit risk modeling workflow - from feature engineering through business strategy implementation. The models achieve strong predictive performance and project a 60% reduction in overdue balances through optimized collections prioritization.
+**Note: This project uses fully synthetic data created for educational purposes only. No real customer data was used in this analysis.**
+
+Using synthetic data that mirrors real-world credit portfolios, this analysis covers the complete credit risk modeling workflow - from feature engineering through business strategy implementation. The models achieve strong predictive performance and project a 34% reduction in overdue balances through optimized collections prioritization (simulated estimate).
 
 **Key Business Question:** How can we better predict which customers will become delinquent and optimize our collections approach to maximize recovery while minimizing costs?
 
@@ -30,7 +32,7 @@ Using synthetic data that mirrors real-world credit portfolios, this analysis co
 - **Advanced Modeling**: Implemented both logistic regression (baseline) and XGBoost (advanced) with hyperparameter optimization
 - **Model Performance**: Achieved strong predictive accuracy on delinquency prediction, with clear separation between risk segments
 - **Risk Segmentation**: Developed three-tier customer segmentation (Low/Medium/High risk) with differentiated strategies
-- **Collections Optimization**: Built framework projecting 34% reduction in overdue balances
+- **Collections Optimization**: Built framework projecting 34% reduction in overdue balances (simulated estimate)
 
 ### Business Applications
 - Risk-based pricing strategy recommendations
@@ -55,8 +57,8 @@ seaborn
 ### Installation & Setup
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/credit-card-delinquency-modeling.git
-cd credit-card-delinquency-modeling
+git clone https://github.com/yourusername/credit-card-delinquency.git
+cd credit-card-delinquency
 ```
 
 2. Install required packages:
@@ -129,7 +131,7 @@ Our analysis generated comprehensive visualizations that demonstrate both techni
 ### Key Performance Metrics
 - **Model Accuracy**: Strong predictive performance with clear risk separation
 - **Portfolio Coverage**: 50,000 synthetic accounts analyzed
-- **Projected Impact**: 34% reduction in overdue balances
+- **Projected Impact**: 34% reduction in overdue balances (simulated estimate)
 - **Risk Concentration**: High-risk segment (15% of customers) accounts for 60% of potential losses
 
 ## Business Impact
@@ -139,7 +141,7 @@ This analysis provides financial institutions with a systematic approach to cred
 
 **Risk Assessment**: The predictive model enables proactive identification of customers likely to become delinquent, allowing for early intervention strategies that can prevent losses before they occur.
 
-**Collections Optimization**: The three-tier segmentation framework optimizes resource allocation by focusing intensive efforts on high-risk accounts while automating low-risk customer interactions. This approach projects a 34% reduction in overdue balances.
+**Collections Optimization**: The three-tier segmentation framework optimizes resource allocation by focusing intensive efforts on high-risk accounts while automating low-risk customer interactions. This approach projects a 34% reduction in overdue balances (simulated estimate).
 
 **Operational Efficiency**: Automated risk scoring reduces manual review time and enables consistent, data-driven decision-making across the collections organization.
 
@@ -170,7 +172,7 @@ The final XGBoost model leverages 12 engineered features with the most predictiv
 
 ### Performance Monitoring
 Built-in validation checks ensure model performance meets business requirements:
-- AUC threshold monitoring (target: 85%)
+- AUC threshold monitoring (target: 79.7%)
 - Segmentation validation against actual outcomes
 - Collections impact tracking
 
