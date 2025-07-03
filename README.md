@@ -57,7 +57,7 @@ seaborn
 ### Installation & Setup
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/credit-card-delinquency.git
+git clone https://github.com/asadadnan11/credit-card-delinquency.git
 cd credit-card-delinquency
 ```
 
